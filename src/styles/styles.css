@@ -1,0 +1,46 @@
+/* src/styles/styles.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2EDDF; /* Main Color */
+    color: #374B26; /* Secondary Color */
+  }
+  
+  h1, h2, h3 {
+    color: #374B26; /* For headings */
+  }
+  
+  a {
+    color: #374B26; /* Links color */
+    text-decoration: none;
+  }
+  
+  button {
+    background-color: #374B26;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #F2EDDF;
+    color: #374B26;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #374B26;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: #374B26;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
