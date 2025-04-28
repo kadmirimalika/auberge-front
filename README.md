@@ -1,2 +1,0 @@
-# auberge-front
-desc
