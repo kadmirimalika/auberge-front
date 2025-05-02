@@ -1,41 +1,33 @@
-// App.js
+// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Components
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-// Pages
 import Home from './pages/Home';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Reservation from './pages/Reservation';
 import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
+import './styles/styles.css';
 
-const App = () => {
+function App() {
   return (
-    <Router> {/* Wrap your entire app with Router */}
-      <div className="app">
-        {/* Header */}
+    <div className="App">
+      <Router>
         <Header />
-
-        {/* Routes for different pages */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/reservation" element={<Reservation />} />
-          <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        </Routes>
-
-        {/* Footer */}
+        <main style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/reservation" element={<Reservation />} />
+            <Route path="/adminlogin" element={<AdminLogin />} />
+          </Routes>
+        </main>
         <Footer />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;
