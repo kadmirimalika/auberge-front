@@ -100,49 +100,292 @@ footer {
     overflow: hidden;
     font-family: 'Segoe UI', sans-serif;
   }
-  
-  .carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  .carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+ .home-carousel-container {
+  background-color: #F2EDDF;
+  padding: 2rem;
+}
+
+.carousel-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #374B26;
+  margin-bottom: 1rem;
+}
+
+.carousel-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-content {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  scrollbar-width: none;
+}
+.carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 auto;
+  width: 220px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.carousel-card:hover {
+  transform: scale(1.05);
+}
+.carousel-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.carousel-card p {
+  margin: 0.5rem;
+  font-weight: 600;
+  color: #374B26;
+}
+
+/* Arrow Buttons */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #374B26;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.carousel-arrow:hover {
+  background-color: #e0e0e0;
+}
+.carousel-arrow.left {
+  left: -20px;
+}
+.carousel-arrow.right {
+  right: -20px;
+}
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+  z-index: 1001;
+}
+.modal-content img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+}
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  background: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1002;
+}
+.modal-nav.left {
+  left: -50px;
+}
+.modal-nav.right {
+  right: -50px;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+.book-button {
+  background-color: #374B26;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.book-button:hover {
+  background-color: #2c3b1e;
+}
+
+.room-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.room-modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.room-modal-content img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.room-modal-content button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #374B26;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.activity-carousel {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.activity-slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.activity-overlay h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.activity-book-button {
+  background-color: #F2EDDF;
+  color: #374B26;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.activity-book-button:hover {
+  background-color: #e6dfc9;
+}
+
+.activity-nav {
+  position: absolute;
+  top: 50%;
+  font-size: 2.5rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+.activity-nav.left {
+  left: 20px;
+}
+.activity-nav.right {
+  right: 20px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-content {
+    gap: 0.8rem;
+    padding: 0.5rem 0;
   }
-  
-  .carousel-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 1s ease-in-out;
+
+  .carousel-card {
+    width: 160px;
   }
-  
-  .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #F2EDDF;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 2rem 3rem;
-    border-radius: 12px;
+
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
   }
-  
-  .carousel-caption h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+
+  .carousel-arrow.left {
+    left: 0;
   }
-  
-  .book-button {
-    background-color: #374B26;
-    color: #F2EDDF;
-    border: none;
-    padding: 0.8rem 1.8rem;
-    font-size: 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+
+  .carousel-arrow.right {
+    right: 0;
   }
-  
-  .book-button:hover {
-    background-color: #2d3d1f;
-  }
-  
+}
+
