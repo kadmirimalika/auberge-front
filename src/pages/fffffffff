@@ -1,0 +1,277 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import { MapPin, Phone, Mail, Clock, Users, Award, Utensils, Mountain, ChevronUp } from "lucide-react"
+import photo1 from "../src/assets/photo1.jpg"
+import photo2 from "../src/assets/photo2.jpg"
+import photo3 from "../src/assets/photo3.jpg"
+
+export default function AboutUs() {
+  const [isVisible, setIsVisible] = useState(false)
+  const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const testimonials = [
+    {
+      quote:
+        "Our stay at Auberge Amazigh was truly unforgettable. The authentic atmosphere, delicious food, and warm hospitality made us feel like we were experiencing the real Morocco.",
+      author: "Sarah & John",
+      location: "United Kingdom",
+    },
+    {
+      quote:
+        "The cultural experiences offered by the auberge were the highlight of our trip. Learning about Amazigh traditions directly from the locals was priceless.",
+      author: "Maria & Carlos",
+      location: "Spain",
+    },
+    {
+      quote:
+        "The attention to detail in preserving authentic Amazigh design while providing modern comforts made our stay both educational and relaxing.",
+      author: "Jean-Pierre",
+      location: "France",
+    },
+  ]
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
+  return (
+    <div className={`about-container ${isVisible ? "fade-in" : ""}`}>
+      {/* Hero Section */}
+      <div
+        className="about-hero"
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${photo1.src})` }}
+      >
+        <div className="about-hero-overlay">
+          <h1 className="hero-title">Our Story</h1>
+          <p className="hero-subtitle">Experience authentic Amazigh hospitality in the heart of Morocco</p>
+          <div className="hero-scroll-indicator">
+            <div className="scroll-arrow"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Our Story Section */}
+      <section className="about-section story-section">
+        <h2 className="section-title">About Auberge Amazigh</h2>
+        <div className="about-content">
+          <div className="about-text">
+            <p>
+              Nestled in the breathtaking landscapes of Morocco, Auberge Amazigh is more than just a place to stay—it's
+              an immersive journey into the rich cultural heritage of the Amazigh people.
+            </p>
+            <p>
+              Founded in 2005 by the Amazigh family, our auberge combines traditional Berber architecture with modern
+              comforts, creating a unique and authentic experience for our guests. Each room is named after a different
+              Amazigh tribe, honoring the diverse cultural tapestry of the region.
+            </p>
+            <p>
+              Our mission is to provide exceptional hospitality while preserving and sharing the Amazigh culture,
+              traditions, and cuisine with visitors from around the world.
+            </p>
+          </div>
+          <div className="about-image reveal-right">
+            <div className="image-frame">
+              <Image
+                src={photo2 || "/placeholder.svg"}
+                alt="Auberge Amazigh exterior"
+                width={600}
+                height={400}
+                className="rounded-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values Section */}
+      <section className="about-section values-section">
+        <h2 className="section-title">Our Values</h2>
+        <div className="values-container">
+          <div className="value-card reveal-up">
+            <div className="value-icon">
+              <Users size={40} />
+            </div>
+            <h3>Authentic Hospitality</h3>
+            <p>We welcome every guest as family, offering warm, personalized service rooted in Amazigh traditions.</p>
+          </div>
+
+          <div className="value-card reveal-up" style={{ animationDelay: "0.2s" }}>
+            <div className="value-icon">
+              <Mountain size={40} />
+            </div>
+            <h3>Cultural Preservation</h3>
+            <p>We actively preserve and share Amazigh heritage through our architecture, decor, and experiences.</p>
+          </div>
+
+          <div className="value-card reveal-up" style={{ animationDelay: "0.4s" }}>
+            <div className="value-icon">
+              <Utensils size={40} />
+            </div>
+            <h3>Culinary Excellence</h3>
+            <p>
+              Our kitchen serves authentic Amazigh cuisine using locally-sourced ingredients and traditional recipes.
+            </p>
+          </div>
+
+          <div className="value-card reveal-up" style={{ animationDelay: "0.6s" }}>
+            <div className="value-icon">
+              <Award size={40} />
+            </div>
+            <h3>Sustainable Tourism</h3>
+            <p>We're committed to environmental responsibility and supporting the local community.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team Section */}
+      <section className="about-section team-section">
+        <h2 className="section-title">Meet Our Team</h2>
+        <div className="team-container">
+          <div className="team-member reveal-up">
+            <div className="team-image-container">
+              <div className="team-image">
+                <Image
+                  src={photo3 || "/placeholder.svg"}
+                  alt="Team Member"
+                  width={300}
+                  height={300}
+                  className="rounded-image"
+                />
+              </div>
+            </div>
+            <h3>Youssef Amazigh</h3>
+            <p className="team-role">Founder & Manager</p>
+            <p>
+              With over 20 years of experience in hospitality, Youssef brings his passion for Amazigh culture to every
+              aspect of the auberge.
+            </p>
+          </div>
+
+          <div className="team-member reveal-up" style={{ animationDelay: "0.2s" }}>
+            <div className="team-image-container">
+              <div className="team-image">
+                <Image
+                  src={photo1 || "/placeholder.svg"}
+                  alt="Team Member"
+                  width={300}
+                  height={300}
+                  className="rounded-image"
+                />
+              </div>
+            </div>
+            <h3>Amina Tamazight</h3>
+            <p className="team-role">Head Chef</p>
+            <p>Amina creates authentic Amazigh cuisine using traditional recipes passed down through generations.</p>
+          </div>
+
+          <div className="team-member reveal-up" style={{ animationDelay: "0.4s" }}>
+            <div className="team-image-container">
+              <div className="team-image">
+                <Image
+                  src={photo2 || "/placeholder.svg"}
+                  alt="Team Member"
+                  width={300}
+                  height={300}
+                  className="rounded-image"
+                />
+              </div>
+            </div>
+            <h3>Hassan Berber</h3>
+            <p className="team-role">Activities Director</p>
+            <p>
+              Hassan's deep knowledge of the local area ensures our guests experience the best adventures and cultural
+              excursions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="about-section testimonials-section">
+        <h2 className="section-title">What Our Guests Say</h2>
+        <div className="testimonials-slider">
+          <div className="testimonial active-testimonial">
+            <div className="quote">"</div>
+            <p>{testimonials[activeTestimonial].quote}</p>
+            <div className="testimonial-author">
+              <p>
+                <strong>{testimonials[activeTestimonial].author}</strong>
+              </p>
+              <p>{testimonials[activeTestimonial].location}</p>
+            </div>
+          </div>
+          <div className="testimonial-dots">
+            {testimonials.map((_, index) => (
+              <span
+                key={index}
+                className={`dot ${activeTestimonial === index ? "active-dot" : ""}`}
+                onClick={() => setActiveTestimonial(index)}
+              ></span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="about-section contact-section">
+        <h2 className="section-title">Visit Us</h2>
+        <div className="contact-container">
+          <div className="contact-info reveal-left">
+            <div className="contact-item">
+              <MapPin className="contact-icon" />
+              <p>123 Atlas Mountains Road, Tafraoute, Morocco</p>
+            </div>
+            <div className="contact-item">
+              <Phone className="contact-icon" />
+              <p>+212 5XX XX XX XX</p>
+            </div>
+            <div className="contact-item">
+              <Mail className="contact-icon" />
+              <p>info@aubergeamazigh.com</p>
+            </div>
+            <div className="contact-item">
+              <Clock className="contact-icon" />
+              <p>Reception: Open 24/7</p>
+            </div>
+            <button className="contact-button">Book Your Stay</button>
+          </div>
+          <div className="map-container reveal-right">
+            <div className="map-frame">
+              <Image
+                src={photo3 || "/placeholder.svg"}
+                alt="Map location"
+                width={500}
+                height={300}
+                className="rounded-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button className="scroll-top-button" onClick={scrollToTop}>
+          <ChevronUp size={24} />
+        </button>
+      )}
+    </div>
+  )
+};
